@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1705010633832,
+      "tag": "0000_clammy_demogoblin",
+      "breakpoints": true
+    }
+  ]
+}

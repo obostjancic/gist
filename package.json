@@ -1,0 +1,26 @@
+{
+  "name": "gist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fetch": "ts-node src/fetch.ts",
+    "last-week": "ts-node src/lastWeek.ts",
+    "generate": "drizzle-kit generate:sqlite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "drizzle-kit": "^0.20.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.4.0-pre.7",
+    "better-sqlite3": "^9.2.2",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.3",
+    "rss-parser": "^3.13.0"
+  }
+}

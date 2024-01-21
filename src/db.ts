@@ -7,6 +7,6 @@ const database = new Database("./gist.db");
 
 export const initDb = async () => {
   const db = drizzle(database, { schema: { articles } });
-  await migrate(db, { migrationsFolder: "./drizzle" });
+  await migrate(db, { migrationsFolder: "./db-out" });
   return db;
 };

@@ -1,0 +1,4 @@
+### Requirements
+
+- installed sqlite3
+-

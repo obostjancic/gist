@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "studio": "npx drizzle-kit studio --port 3000",
+    "studio": "npx drizzle-kit studio --host 0.0.0.0 --port 3000",
     "fetch": "ts-node src/fetch.ts",
     "last-week": "ts-node src/lastWeek.ts",
     "generate": "drizzle-kit generate:sqlite"

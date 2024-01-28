@@ -3,6 +3,8 @@ import Parser from "rss-parser";
 import { initDb } from "./db";
 import * as schema from "./schema";
 import { Article } from "./types";
+import { initSentry } from "./sentry";
+import * as Sentry from "@sentry/node";
 
 type KlixFeed = {
   title: string;
@@ -77,13 +79,28 @@ async function saveArticles(articles: Article[]) {
 
 async function run() {
   console.log("Checking for new articles");
+  const checkInId = Sentry.captureCheckIn({
+    monitorSlug: "fetch-feed",
+    status: "in_progress",
+  });
   try {
     const articles = await fetchFeed();
     const processedArticles = processArticles(articles);
     saveArticles(processedArticles);
+    Sentry.captureCheckIn({
+      checkInId,
+      monitorSlug: "fetch-feed",
+      status: "ok",
+    });
   } catch (error) {
+    Sentry.captureCheckIn({
+      checkInId,
+      monitorSlug: "fetch-feed",
+      status: "error",
+    });
     console.error(error);
   }
   setTimeout(run, 1 * 60 * 1000);
 }
+initSentry();
 run();
